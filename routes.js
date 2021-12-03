@@ -8,7 +8,12 @@ class StoreNews {
   }
 
   toString() {
-    return JSON.stringify(this.RSS);
+    var res = "";
+    console.log("item");
+    this.RSS.map((item) => {
+      res += `Заголовок: ${item.title} Дата: ${item.pubDate} Ссылка на картинку: ${item.enclosure.url} Содержание: ${item.content}\n`;
+    });
+    return res;
   }
 
   saveToBD() {
